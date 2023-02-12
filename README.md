@@ -1,3 +1,3 @@
-# Todo web apllication
+# Todo web application
 
 React + TS, Context API, MUI, React Query
