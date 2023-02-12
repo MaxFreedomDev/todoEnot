@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  LocalizationProvider,
+  QueryClientProvider,
+  ThemeProvider,
+  TodoProvider,
+} from "providers";
+import { AppLayout, Header, TodoList, News } from "components";
+import "styles/global.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LocalizationProvider>
+      <ThemeProvider>
+        <QueryClientProvider>
+          <TodoProvider>
+            <AppLayout>
+              <Header />
+              <TodoList />
+              <News />
+            </AppLayout>
+          </TodoProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </LocalizationProvider>
   );
-}
+};
 
 export default App;
